@@ -1,6 +1,7 @@
 import unittest
-from to_do import add_task, Task 
+from to_do import add_task, Task, view_tasks, complete_task
 import datetime
+
 class TestTodoListFunctions(unittest.TestCase):
 
     def test_add_task(self):
@@ -35,5 +36,30 @@ class TestTodoListFunctions(unittest.TestCase):
         task3 = Task("Invalid Date", "invalid-date")
         self.assertIsNone(task3.due_date)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_mark_complete(self):
+        task = Task("Complete me")
+        task.mark_complete()
+        self.assertTrue(task.completed)
+
+    #def test_view_tasks(self, capsys):
+    #    todo_list = [
+    #        Task("Task 1", "2025-04-12"),
+    #        Task("Task 2", estimated_time=60),
+    #        Task("Task 3", "2025-04-10", 15),
+    #    ]
+    #    view_tasks(todo_list)
+    #    captured = capsys.readouterr()
+    #    self.assertIn("Task 1", captured.out)
+    #    self.assertIn("Task 2", captured.out)
+
+    #    view_tasks([], sort_by = 'due')
+    #    captured = capsys.readouterr()
+    #    self.assertIn("Your to-do list is empty.", captured.out)
+
+    #def test_complete_task(self, capsys):
+    #    todo_list = [Task("Task 1"), Task("Task 2")]
+    #    complete_task(todo_list, 0)
+    #    self.assertTrue(todo_list[0].completed)
+    #    complete_task(todo_list, 2)
+    #    captured = capsys.readouterr()
+    #    self.assertIn("Invalid task index.", captured.out)

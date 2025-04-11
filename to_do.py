@@ -54,7 +54,7 @@ def complete_task(todo_list, index):
     else:
         print("Invalid task index.")
 
-# Example Usage (not part of the testable functions)
+
 if __name__ == "__main__":
     my_todos = []
     add_task(my_todos, "Buy groceries", "2025-04-12")
